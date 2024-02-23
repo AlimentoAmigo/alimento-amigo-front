@@ -31,7 +31,7 @@ function Sobre(){
               'https://64.media.tumblr.com/0814345a2452c534c23300be9ea0497d/1fa5cbaaa7812c8a-2b/s500x750/12ced0ee668fb8a57e7c167c6c9cd0edb1cf5b1d.pnj',
           },
           {
-            name: 'Nicolle Louise',
+            name: 'Nicole Valletta',
             role: 'Desenvolvedora Full Stack Junior',
             imageUrl:
               'https://64.media.tumblr.com/74f93a3546eee8c6e72d0759c3bd92d5/16d270b320dad789-3c/s500x750/743012b90f263950faa2594a129b956b1f1959b7.pnj',

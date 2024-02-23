@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Contato() {
     const handleSubmit = (event: { preventDefault: () => void; }) => {

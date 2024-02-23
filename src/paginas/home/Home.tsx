@@ -1,4 +1,4 @@
-import homeLogo from '../../assets/img/iphone-14.png';
+import homeLogo from '../../assets/img/celular_home.png';
 import './Home.css';
 
 
@@ -14,7 +14,7 @@ function Home() {
   
               <div className="flex justify-around gap-4">
               
-                <button className='rounded bg-amber-600 text-white-800 py-2 px-4'>Ver produtos</button>
+                <button className='rounded bg-orange-600 text-white-800 py-2 px-4'>Ver produtos</button>
               </div>
             </div>
   
