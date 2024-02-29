@@ -125,7 +125,7 @@ function FormularioCategoria() {
             value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <div> <p className="font-sm text-red-600">*Campos obrigatórios. Mínimo de 5 caracteres para o campo "nome" e 10 para o campo "descrição".</p></div>
+          <div> <p className="font-sm text-red-600">*CAMPOS OBRIGATÓRIOS. Mínimo de 5 caracteres para o campo "nome" e 10 para o campo "descrição".</p></div>
         </div>
         <button
           className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"

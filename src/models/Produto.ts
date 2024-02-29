@@ -1,4 +1,5 @@
 import Categoria from "./Categoria";
+import Usuario from "./Usuario";
 
 export default interface Produto {
     id: number;
@@ -8,5 +9,6 @@ export default interface Produto {
     nome: string;
     preco: number;
     quantidade: number;
-    categoria: Categoria | null;
+    categoria?: Categoria | null;
+    usuario: Usuario | null;
 }

@@ -1,4 +1,5 @@
 import homeLogo from '../../assets/img/celular_home.png';
+import ListaProdutos from '../../components/produto/listaProduto/ListaProduto';
 import './Home.css';
 
 
@@ -19,12 +20,12 @@ function Home() {
             </div>
   
             <div className="flex justify-center ">
-              <img src={homeLogo} alt="" className='w-2/3' />
+              <img src={homeLogo} alt="" className='w-1/2' />
       
             </div>
           </div>
         </div>
-      
+      <ListaProdutos /> 
       </>
     );
 }
