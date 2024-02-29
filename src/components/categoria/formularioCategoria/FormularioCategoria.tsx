@@ -102,8 +102,21 @@ function FormularioCategoria() {
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
+      
+      <div className="flex flex-col gap-2">
+          <label htmlFor="descricao">Nome da categoria*</label>
+          <input
+            type="text"
+            placeholder="Nome"
+            name='tipo'
+            className="border-2 border-slate-700 rounded p-2"
+            value={categoria.tipo}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+          />
+        </div>
+
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria</label>
+          <label htmlFor="descricao">Descrição da categoria*</label>
           <input
             type="text"
             placeholder="Descrição"
@@ -112,6 +125,7 @@ function FormularioCategoria() {
             value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
+          <div> <p className="font-sm text-red-600">*Campos obrigatórios. Mínimo de 5 caracteres para o campo "nome" e 10 para o campo "descrição".</p></div>
         </div>
         <button
           className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
