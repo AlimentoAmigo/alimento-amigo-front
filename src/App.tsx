@@ -8,6 +8,8 @@ import Sobre from './paginas/sobre/Sobre';
 import Cadastro from './paginas/cadastro/Cadastro';
 import Login from './paginas/login/Login';
 import { AuthProvider } from './contexts/AuthContexts';
+import ListaCategoria from './components/categoria/listaCategoria/ListaCategoria';
+import FormularioCategoria from './components/categoria/formularioCategoria/FormularioCategoria';
 
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
                           <Route path="/contato" element={<Contato />} />
                           <Route path="/cadastro" element={<Cadastro />} />
                           <Route path="/sobre" element={<Sobre />} />
+                          <Route path="/categorias" element={<ListaCategoria />} />
+                          <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
+                          <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
                       </Routes>
                   </div>
                   <Footer />
