@@ -142,11 +142,11 @@ function FormularioProduto() {
 
   return (
     <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
+      <h1 className="text-4xl text-center my-8  text-orange-600 underline">{id !== undefined ? 'Editar um produto!' : 'Cadastre um produto!'}</h1>
 
       <form onSubmit={gerarNovoProduto} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="nome">Nome do Produto</label>
+          <label htmlFor="nome" className='uppercase'><strong>Nome do Produto:</strong></label>
           <input
             value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -154,12 +154,12 @@ function FormularioProduto() {
             placeholder="Nome"
             name="nome"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="foto">Foto</label>
+          <label htmlFor="foto" className='uppercase'><strong>Foto:</strong></label>
           <input
             value={produto.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -167,12 +167,12 @@ function FormularioProduto() {
             placeholder="Link da foto"
             name="foto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="data_validade">Data de Validade</label>
+          <label htmlFor="data_validade" className='uppercase'> <strong>Data de Validade:</strong></label>
           <input
             value={produto.data_validade}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -180,12 +180,12 @@ function FormularioProduto() {
             placeholder="Data de Validade"
             name="data_validade"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="preco">Valor</label>
+          <label htmlFor="preco" className='uppercase'><strong>Valor</strong></label>
           <input
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -193,12 +193,12 @@ function FormularioProduto() {
             placeholder="Valor Simbólico"
             name="preco"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="titulo">Descrição</label>
+          <label htmlFor="titulo" className='uppercase'><strong>Descrição</strong></label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -206,24 +206,24 @@ function FormularioProduto() {
             placeholder="Descrição"
             name="descricao"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <p>Nome do Produto</p>
-          <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
+          <p className='uppercase'><strong>Categoria:</strong></p>
+          <select name="categoria" id="categoria" className='border-2 p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
             <option value="" selected disabled>Selecione uma Categoria</option>
             {categorias.map((categoria) => (
               <>
-                <option value={categoria.id} >{categoria.descricao}</option>
+                <option value={categoria.id} >{categoria.tipo}</option>
               </>
             ))}
           </select>
         </div>
-        <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
-          {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
-        </button>
+        <div className='py-4'><button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-orange-300 bg-orange-400 hover:bg-orange-800 text-white font-bold w-1/2 mx-auto block py-2'>
+          {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'EDITAR' : 'CADASTRAR'}
+        </button></div>
       </form>
     </div>
   );

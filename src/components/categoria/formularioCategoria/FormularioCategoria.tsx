@@ -97,38 +97,38 @@ function FormularioCategoria() {
 
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">
-        {id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'}
+      <h1 className="text-4xl text-center my-8 underline text-orange-600">
+        {id === undefined ? 'Cadastre uma nova categoria!' : 'Editar categoria'}
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
       
       <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Nome da categoria*</label>
+          <label htmlFor="descricao" className='font-semibold uppercase'>Nome da categoria*</label>
           <input
             type="text"
             placeholder="Nome"
             name='tipo'
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
             value={categoria.tipo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria*</label>
+          <label htmlFor="descricao" className='font-semibold uppercase'>Descrição da categoria*</label>
           <input
             type="text"
             placeholder="Descrição"
             name='descricao'
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2"
             value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <div> <p className="font-sm text-red-600">*CAMPOS OBRIGATÓRIOS. Mínimo de 5 caracteres para o campo "nome" e 10 para o campo "descrição".</p></div>
+          <div> <p className="font-sm font-semibold text-red-600">*CAMPOS OBRIGATÓRIOS. Mínimo de 5 caracteres para o campo "nome" e 10 para o campo "descrição".</p></div>
         </div>
         <button
-          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+          className="rounded text-slate-100 bg-orange-400 hover:bg-orange-800 w-1/2 py-2 mx-auto block uppercase font-semibold"
           type="submit"
         >
           {id === undefined ? 'Cadastrar' : 'Editar'}
