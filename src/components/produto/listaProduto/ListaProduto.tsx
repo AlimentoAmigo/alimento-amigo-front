@@ -1,43 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
-import { buscar } from '../../../services/Service';
-import { AuthContext } from '../../../contexts/AuthContexts';
 import Produto from '../../../models/Produto';
 import CardProduto from '../cardProduto/CardProduto';
+import { buscarProduto } from '../../../services/Service';
 
 function ListaProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
-  let navigate = useNavigate();
-
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
-
-  useEffect(() => {
-    if (token === '') {
-      alert('Você precisa estar logado');
-      navigate('/');
-    }
-  }, [token]);
-
-  async function buscarProduto() {
+  async function buscarProdutos() {
     try {
-      await buscar('/produto/all', setProdutos, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await buscarProduto('/produto/all', setProdutos);
     } catch (error: any) {
       if (error.toString().includes('403')) {
         alert('O token expirou, favor logar novamente')
-        handleLogout()
       }
     }
   }
 
   useEffect(() => {
-    buscarProduto();
+    buscarProdutos();
   }, [produtos.length]);
   return (
     <>
