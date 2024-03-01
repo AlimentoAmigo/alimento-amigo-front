@@ -5,6 +5,16 @@ import {Link, useNavigate} from "react-router-dom";
 import favicon from "../../assets/img/favicon.png";
 
 function Navbar() {
+    const {handleLogout} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    //botão sair
+    const handleLogoutClick = () => {
+        localStorage.removeItem("seuToken");
+        handleLogout();
+        navigate("/login");
+    };
+
     return (
         <>
             {/* Acima da linha verde */}
@@ -40,9 +50,9 @@ function Navbar() {
                             <div className="px-1">
                                 <SignOut size={20} />
                             </div>
-                            <Link to="" className="hover:underline">
+                            <div className="hover:underline" onClick={handleLogoutClick}>
                                 Sair
-                            </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
