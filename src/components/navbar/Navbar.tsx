@@ -38,7 +38,7 @@ function Navbar() {
             <div className='flex gap-2 items-center uppercase text-sm'>
             <div className='flex px-1 items-center'><div className='px-1'><HouseSimple size={20} /></div><Link to='/home' className='hover:underline'>Home</Link></div>
             <div className='flex px-1 items-center'><div className='px-1'><Note size={20} /></div><Link to= '/categorias' className='hover:underline'>Categorias</Link></div>
-            <div className='flex px-1 items-center'><div className='px-1'><Basket size={20} /></div><Link to='/produtos' className='hover:underline'>Produtos</Link></div>
+            <div className='flex px-1 items-center'><div className='px-1'><Basket size={20} /></div><Link to='/produto/all' className='hover:underline'>Produtos</Link></div>
             <div className='flex px-1 items-center'><div className='px-1'><PlusCircle size={20} /></div><Link to= '/cadastroCategoria' className='hover:underline'>Nova Categoria</Link></div>
             <div className='flex px-1 items-center'><div className='px-1'><PlusCircle size={20} /></div><Link to= '/' className='hover:underline'>Novo Produto</Link></div>
 

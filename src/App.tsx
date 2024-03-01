@@ -32,7 +32,7 @@ function App() {
                           <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
                           <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
                           <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
-                          <Route path="/produtos" element={<ListaProdutos />} />
+                          <Route path="/produto/all" element={<ListaProdutos />} />
                       </Routes>
                   </div>
                   <Footer />
