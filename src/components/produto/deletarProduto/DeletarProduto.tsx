@@ -43,7 +43,7 @@ function DeletarProduto() {
   }, [id])
 
   function retornar() {
-    navigate("/produto/all")
+    navigate("/produto")
   }
 
   async function deletarProduto() {
