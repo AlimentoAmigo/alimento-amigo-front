@@ -11,6 +11,7 @@ function Navbar() {
   const { handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  //botão sair
  const handleLogoutClick = () => {
     localStorage.removeItem('seuToken');
     handleLogout(); 
