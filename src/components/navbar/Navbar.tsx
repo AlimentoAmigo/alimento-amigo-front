@@ -3,12 +3,19 @@ import { Basket, HouseSimple, Phone, PlusCircle, SignIn, SignOut, User, UserCirc
 import { Note } from '@phosphor-icons/react/dist/ssr'
 import { Link, useNavigate } from 'react-router-dom'
 import favicon from '../../assets/img/favicon.png'
-
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContexts'
 
 
 function Navbar() {
- 
-  
+  const { handleLogout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+ const handleLogoutClick = () => {
+    localStorage.removeItem('seuToken');
+    handleLogout(); 
+    navigate('/login');
+  };
 
   return (
     <>
@@ -21,7 +28,7 @@ function Navbar() {
     <div className='flex px-1 items-center'><div className='px-1'><SignIn size={20} /></div><Link to='/login' className='hover:underline'>Login</Link></div>
     <div className='flex px-1 items-center'><div className='px-1'><UserCirclePlus size={20} /></div><Link to= '/cadastro' className='hover:underline'>Cadastro</Link></div>
     <div className='flex px-1 items-center'><div className='px-1'><UserCircle size={20} /></div><div className='hover:underline'>Perfil</div></div>
-    <div className='flex px-1 items-center'><div className='px-1'><SignOut size={20} /></div><div className='hover:underline'>Sair</div></div>
+    <div className='flex px-1 items-center'><div className='px-1'><SignOut size={20} /></div><div className='hover:underline' onClick={handleLogoutClick}>Sair</div></div>
     </div>
     </div>
     </div>

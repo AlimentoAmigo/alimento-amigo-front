@@ -34,11 +34,15 @@ function Login() {
         handleLogin(usuarioLogin);
     }
 
+    function logout() {
+         handleLogout();
+      }
+
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
-                <form className="flex justify-center items-center flex-col w-1/2 gap-4" onSubmit={login}>
-                    <h2 className="text-slate-900 text-5xl ">Entrar</h2>
+            <div className=" w-full h-screen flex items-center justify-center  bg-[url('/src/assets/img/login.png')] ">
+                <form className="flex flex-col gap-4 items-center py-4" onSubmit={login}>
+                    <h2 className='text-green-900 text-center text-5xl font-bold'>Entrar</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="usuario">Usuário</label>
                         <input
@@ -76,10 +80,14 @@ function Login() {
                         </Link>
                     </p>
                 </form>
-                <div className="fundoLogin hidden lg:block"></div>
+              
             </div>
         </>
     );
 }
 
 export default Login;
+function handleLogout() {
+    throw new Error("Function not implemented.");
+}
+
