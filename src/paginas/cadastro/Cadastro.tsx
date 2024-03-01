@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import {cadastrarUsuario} from "../../services/Service";
 import "./Cadastro.css";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Cadastro() {
     let navigate = useNavigate();
@@ -52,14 +53,14 @@ function Cadastro() {
         if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
             try {
                 await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResposta);
-                alert("Usuário cadastrado com sucesso");
+                toastAlerta('Usuário cadastrado com sucesso', 'sucesso');
             } catch (error) {
-                alert("Erro ao cadastrar o Usuário");
+                toastAlerta('Erro ao cadastrar o usuário', 'erro');
             }
         } else {
-            alert("Dados inconsistentes. Verifique as informações de cadastro.");
-            setUsuario({...usuario, senha: ""}); // Reinicia o campo de Senha
-            setConfirmaSenha(""); // Reinicia o campo de Confirmar Senha
+            toastAlerta('Dados inconsistentes. Verifique as informações de cadastro', 'erro');
+            setUsuario({...usuario, senha: ""});
+            setConfirmaSenha("");
         }
     }
 
@@ -67,7 +68,7 @@ function Cadastro() {
         <>
             <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
                 <div className="fundoCadastro hidden lg:block"></div>
-                <form className="flex justify-center items-center flex-col w-2/3 gap-3" onSubmit={cadastrarNovoUsuario}>
+                <form className="flex justify-center items-center flex-col w-2/3 gap-3 bg-amber-100 p-8 rounded-lg shadow-md  max-w-md" onSubmit={cadastrarNovoUsuario}>
                     <h2 className="text-slate-900 text-5xl">Cadastrar</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="nome">Nome</label>

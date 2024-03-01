@@ -3,6 +3,7 @@ import { Dna } from 'react-loader-spinner';
 import Produto from '../../../models/Produto';
 import CardProduto from '../cardProduto/CardProduto';
 import { buscarProduto } from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -12,7 +13,7 @@ function ListaProdutos() {
       await buscarProduto('/produto/all', setProdutos);
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        alert('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info');
       }
     }
   }
