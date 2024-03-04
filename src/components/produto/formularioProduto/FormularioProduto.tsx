@@ -191,8 +191,21 @@ function FormularioProduto() {
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="number"
-            placeholder="Valor Simbólico"
+            placeholder="Valor simbólico"
             name="preco"
+            required
+            className="border-2 border-slate-800 rounded p-2"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="quantidade" className='uppercase'><strong>Quantidade</strong></label>
+          <input
+            value={produto.quantidade}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            type="number"
+            placeholder="Quantidade de produtos"
+            name="quantidade"
             required
             className="border-2 border-slate-800 rounded p-2"
           />
