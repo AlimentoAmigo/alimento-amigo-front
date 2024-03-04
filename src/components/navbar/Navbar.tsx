@@ -3,6 +3,8 @@ import {Basket, HouseSimple, Phone, PlusCircle, SignIn, SignOut, User, UserCircl
 import {Note} from "@phosphor-icons/react/dist/ssr";
 import {Link, useNavigate} from "react-router-dom";
 import favicon from "../../assets/img/favicon.png";
+import { AuthContext } from "../../contexts/AuthContexts";
+import { useContext } from "react";
 
 function Navbar() {
     const {handleLogout} = useContext(AuthContext);
