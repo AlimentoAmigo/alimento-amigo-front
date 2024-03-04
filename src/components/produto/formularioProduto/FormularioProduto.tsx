@@ -213,14 +213,14 @@ function FormularioProduto() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="titulo" className='uppercase'><strong>Descrição</strong></label>
-          <input
+          <textarea
             value={produto.descricao}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            type="text"
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => atualizarEstado(e)}
             placeholder="Descrição"
             name="descricao"
             required
             className="border-2 border-slate-800 rounded p-2"
+            rows={4}
           />
         </div>
 

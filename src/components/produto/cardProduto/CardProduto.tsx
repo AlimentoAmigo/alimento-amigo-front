@@ -9,6 +9,14 @@ interface CardProdutoProps {
   produto: Produto;
 }
 
+function formatarData(data: string): string {
+  const dataObj = new Date(data);
+  const dia = dataObj.getDate().toString().padStart(2, '0');
+  const mes = (dataObj.getMonth() + 1).toString().padStart(2, '0');
+  const ano = dataObj.getFullYear();
+  return `${dia}-${mes}-${ano}`;
+}
+
 function CardProduto({ produto }: CardProdutoProps) {
   const { usuario } = useContext(AuthContext); // Obtenha o estado de autenticação do contexto
 
@@ -17,7 +25,7 @@ function CardProduto({ produto }: CardProdutoProps) {
       <div>
         <div className="flex w-full bg-green-800 py-2 px-4 justify-center items-center gap-4">
           <img src='' className='h-12 rounded-full' alt="" />
-          <h3 className='text-lg font-bold text-center uppercase text-white'>{produto.usuario?.nome}</h3>
+          <h3 className='text-lg font-bold text-center uppercase text-white'>{produto.nome}</h3>
         </div>
         <div className='p-4'>
           <h4 className='text-lg font-semibold uppercase text-center'>{produto.nome}</h4>
@@ -31,7 +39,7 @@ function CardProduto({ produto }: CardProdutoProps) {
           <br />
           
           <p className='text-justify'><strong>CATEGORIA:</strong> {produto.categoria?.tipo} </p>
-          <p><strong>VALIDADE:</strong> {produto.data_validade} </p>
+          <p><strong>VALIDADE:</strong> {formatarData(produto.data_validade)} </p>
           <p><strong>QUANTIDADE DISPONÍVEL:</strong> {produto.quantidade} </p>
         </div>
       </div>
