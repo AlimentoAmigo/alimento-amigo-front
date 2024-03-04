@@ -83,7 +83,7 @@ function FormularioProduto() {
     });
   }, [categoria]);
 
-  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+  function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setProduto({
       ...produto,
       [e.target.name]: e.target.value,
