@@ -26,6 +26,7 @@ function CardProduto({produto}: CardProdutoProps) {
           
           <p className='text-justify'><strong>CATEGORIA:</strong> {produto.categoria?.tipo} </p>
           <p><strong>VALIDADE:</strong> {produto.data_validade} </p>
+          <p><strong>QUANTIDADE DISPONÍVEL:</strong> {produto.quantidade} </p>
         </div>
       </div>
       <div className="flex">
