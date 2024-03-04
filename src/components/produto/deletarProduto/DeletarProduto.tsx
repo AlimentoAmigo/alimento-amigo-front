@@ -44,7 +44,7 @@ function DeletarProduto() {
   }, [id])
 
   function retornar() {
-    navigate("/produto")
+    navigate("/produto/all")
   }
 
   async function deletarProduto() {
@@ -56,6 +56,7 @@ function DeletarProduto() {
       })
 
       toastAlerta('Produto deletado com sucesso', 'sucesso')
+      retornar()
 
     } catch (error) {
       toastAlerta('Erro ao deletar o produto', 'erro')

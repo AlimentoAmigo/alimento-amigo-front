@@ -1,12 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Produto from '../../../models/Produto'
+// CardProduto.tsx
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import Produto from '../../../models/Produto';
+import { AuthContext } from '../../../contexts/AuthContexts';
+
 
 interface CardProdutoProps {
-  produto: Produto
+  produto: Produto;
 }
 
-function CardProduto({produto}: CardProdutoProps) {
+function CardProduto({ produto }: CardProdutoProps) {
+  const { usuario } = useContext(AuthContext); // Obtenha o estado de autenticação do contexto
+
   return (
     <div className='border-green-900 border flex flex-col rounded overflow-hidden justify-between'>
       <div>
@@ -19,25 +24,30 @@ function CardProduto({produto}: CardProdutoProps) {
           <hr className='border-orange-400 border-2'/>
           <br />
           <div className="flex justify-center items-center">
-          <img src={produto.foto} alt='Produto ofertado'  className="w-48 h-48"/></div>
+            <img src={produto.foto} alt='Produto ofertado' className="w-48 h-48"/>
+          </div>
           <br /> 
           <p className='text-center'>{produto.descricao}</p>
           <br />
           
           <p className='text-justify'><strong>CATEGORIA:</strong> {produto.categoria?.tipo} </p>
           <p><strong>VALIDADE:</strong> {produto.data_validade} </p>
+          <p><strong>QUANTIDADE DISPONÍVEL:</strong> {produto.quantidade} </p>
         </div>
       </div>
-      <div className="flex">
-      <Link to={`/editarProduto/${produto.id}`} className='w-full text-white bg-green-400 hover:bg-green-800 flex items-center justify-center py-2'>
-          <button className='uppercase font-semibold'>Editar</button>
-        </Link>
-        <Link to={`/deletarProduto/${produto.id}`} className='text-white bg-orange-400 hover:bg-orange-800 w-full flex items-center justify-center'>
-          <button className='uppercase font-semibold'>Deletar</button>
-        </Link>
-      </div>
+     
+      {usuario && usuario.token !== "" && ( // Verifica se o usuário está logado
+        <div className="flex">
+          <Link to={`/editarProduto/${produto.id}`} className='w-full text-white bg-green-400 hover:bg-green-800 flex items-center justify-center py-2'>
+            <button className='uppercase font-semibold'>Editar</button>
+          </Link>
+          <Link to={`/deletarProduto/${produto.id}`} className='text-white bg-orange-400 hover:bg-orange-800 w-full flex items-center justify-center'>
+            <button className='uppercase font-semibold'>Deletar</button>
+          </Link>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default CardProduto
+export default CardProduto;

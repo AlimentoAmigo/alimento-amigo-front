@@ -100,7 +100,7 @@ function FormularioProduto() {
     e.preventDefault();
 
     console.log({ produto });
-
+    retornar()
     if (id != undefined) {
       try {
         await atualizar(`/produto/all`, produto, setProduto, {
