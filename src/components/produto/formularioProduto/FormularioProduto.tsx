@@ -63,7 +63,7 @@ function FormularioProduto() {
   useEffect(() => {
     if (token === '') {
       toastAlerta('Você precisa estar logado', 'info')
-      navigate('/');
+      navigate('/login');
     }
   }, [token]);
 
@@ -143,7 +143,7 @@ function FormularioProduto() {
 
   return (
     <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8  text-orange-600 underline">{id !== undefined ? 'Editar um produto!' : 'Cadastre um produto!'}</h1>
+      <h1 className="text-4xl text-center my-8  text-orange-600">{id !== undefined ? 'Editar um produto!' : 'Cadastre um produto!'}</h1>
 
       <form onSubmit={gerarNovoProduto} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
