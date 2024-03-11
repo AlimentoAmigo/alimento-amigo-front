@@ -70,7 +70,7 @@ function FormularioCategoria() {
           }
         })
 
-        toastAlerta('Categoria deletada com sucesso', 'sucesso')
+        toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
